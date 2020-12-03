@@ -1,0 +1,7 @@
+pymc3
+seaborn
+jupyterlab
+pytest
+coverage
+pylint
+pytest-cov
