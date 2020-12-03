@@ -3,7 +3,11 @@
 In progress
 
 <br>
-<br>
+
+[Notebooks](./notebooks):
+
+* covariates.ipynb <br> [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/plausibilities/sars/blob/develop/notebooks/covariates.ipynb)
+
 <br>
 <br>
 
