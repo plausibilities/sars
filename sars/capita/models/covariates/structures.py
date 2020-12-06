@@ -1,38 +1,28 @@
-import theano
 import numpy as np
 
 import sars.functions.scaler
 
 
-
 class Structures:
 
-    def __init__(self, dependents: int):
+    def __init__(self):
         """
 
         """
-        self.dependents = dependents
 
     @staticmethod
     def scale():
-
         return sars.functions.scaler.Scaler()
 
-    def share(self, tensor: np.ndarray, predictor: bool):
+    def exc(self, tensor: np.ndarray):
+        """
 
-        if predictor:
-            shared = theano.shared(np.repeat(tensor, self.dependents, axis=1))
-        else:
-            shared = theano.shared(tensor)
-            
-        return shared
-            
-    def exc(self, tensor: np.ndarray, predictor: bool):
+        :param tensor:
+        :return:
+        """
 
         scaler = self.scale()
 
-        transformed = scaler.fit_transform(tensor=tensor)
+        scaled = scaler.fit_transform(tensor=tensor)
 
-        shared = self.share(tensor=transformed, predictor=predictor)
-
-        return scaler, transformed, shared
+        return scaler, scaled
