@@ -1,0 +1,37 @@
+digraph {
+	graph [size="5.7,7.9"]
+	node [shape=circle]
+	subgraph cluster6 {
+		packed_l_m [label="packed_l_m
+~
+_LKJCholeskyCov"]
+		packed_l_c [label="packed_l_c
+~
+_LKJCholeskyCov"]
+		label=6 labeljust=r labelloc=b style=rounded
+	}
+	subgraph "cluster265 x 3" {
+		sigma [label="sigma
+~
+Gamma"]
+		gradient [label="gradient
+~
+MvGaussianRandomWalk"]
+		regression [label="regression
+~
+Deterministic" shape=box]
+		intercept [label="intercept
+~
+MvGaussianRandomWalk"]
+		y [label="y
+~
+Normal" style=filled]
+		label="265 x 3" labeljust=r labelloc=b style=rounded
+	}
+	packed_l_c -> intercept
+	packed_l_m -> gradient
+	intercept -> regression
+	gradient -> regression
+	regression -> y
+	sigma -> y
+}
