@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 
-class Data:
+class Baseline:
 
     def __init__(self):
 
@@ -10,15 +10,17 @@ class Data:
                    'atlantic/warehouse/hospitalizations.csv'
 
         self.fields = ['datetimeobject', 'STUSPS',
-                       'positiveRate', 'testRate', 'deathRate', 'hospitalizedRate', 'icuRate', 'ndays']
+                       'positiveCumulative', 'deathCumulative', 'hospitalizedCumulative',
+                       'positiveRate', 'deathRate', 'hospitalizedRate', 'ndays']
 
-        self.dtype = {'STUSPS': 'str',
-                      'positiveRate': np.float64, 'testRate': np.float64, 'deathRate': np.float64,
-                      'hospitalizedRate': np.float64, 'icuRate': np.float64, 'ndays': np.int64}
+        self.dtype = {'STUSPS': 'str', 'positiveCumulative': np.float64,
+                      'deathCumulative': np.float64, 'hospitalizedCumulative': np.float64,
+                      'positiveRate': np.float64, 'deathRate': np.float64, 'hospitalizedRate': np.float64,
+                      'ndays': np.int64}
 
         self.parse_dates = ['datetimeobject']
 
-    def read(self):
+    def exc(self):
 
         try:
             return pd.read_csv(filepath_or_buffer=self.url, header=0, usecols=self.fields,
