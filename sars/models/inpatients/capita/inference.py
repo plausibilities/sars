@@ -57,6 +57,8 @@ class Inference:
         :return: A named tuple of model characteristics
         """
 
+        # pylint: disable=E1136
+
         independent = self.share(tensor=self.data.independent, repeat=True, repeats=self.parameters.P)
         dependent = self.share(tensor=self.data.dependent, repeat=False)
 
@@ -83,7 +85,6 @@ class Inference:
             emr = em_[self.elements.indices]
 
             # Regression
-            # regression = cr + mr * self.independent
             regression = pm.Deterministic('regression', ecr + emr * independent)
 
             # Hyper-parameters
