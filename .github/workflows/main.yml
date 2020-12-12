@@ -35,17 +35,8 @@ jobs:
           echo "Issues in relation to logic (F7), syntax (Python E9, Flake F7), mathematical
           formulae symbols (F63), undefined variable names (F82):"
 
-          echo -e "\nsars/models/inpatients/capita"
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics sars/models/inpatients/capita
-
-          echo -e "\nsars/models/inpatients/natural"
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics sars/models/inpatients/natural
-
-          echo -e "\nsars/models/inpatients/src"
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics sars/models/inpatients/src
-
-          echo -e "\nsars/models/inpatients/*.py"
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics sars/models/inpatients/*.py
+          echo -e "\nsars/models"
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics sars/models
 
           echo -e "\nsars/functions"
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics sars/functions
@@ -57,17 +48,8 @@ jobs:
           printf "\n"
           echo "Complexity issues:"
 
-          echo -e "\nsars/models/inpatients/capita"
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics sars/models/inpatients/capita
-
-          echo -e "\nsars/models/inpatients/natural"
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics sars/models/inpatients/natural
-
-          echo -e "\nsars/models/inpatients/src"
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics sars/models/inpatients/src
-
-          echo -e "\nsars/models/inpatients/*.py"
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics sars/models/inpatients/*.py
+          echo -e "\nsars/models"
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics sars/models
 
           echo -e "\nsars/functions"
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics sars/functions
@@ -82,17 +64,8 @@ jobs:
           echo "============================= pylint session starts =============================="
           printf "\n"
 
-          echo -e "\nsars/models/inpatients/capita/"
-          pylint --rcfile .pylintrc sars/models/inpatients/capita
-
-          echo -e "\nsars/models/inpatients/natural/"
-          pylint --rcfile .pylintrc sars/models/inpatients/natural
-
-          echo -e "\nsars/models/inpatients/src/"
-          pylint --rcfile .pylintrc sars/models/inpatients/src
-
-          echo -e "\nsars/models/inpatients/*.py"
-          pylint --rcfile .pylintrc sars/models/inpatients/*.py
+          echo -e "\nsars/models"
+          pylint --rcfile .pylintrc sars/models
 
           echo -e "\nsars/functions"
           pylint --rcfile .pylintrc sars/functions
