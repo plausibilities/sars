@@ -22,7 +22,7 @@ class Scaled:
 
         self.Scaled = collections.namedtuple(
             typename='Scaled',
-            field_names=['xscale', 'independent', 'abscissae', 'yscale', 'dependent'])  # pylint: disable-msg=C0103
+            field_names=['xscale', 'independent', 'abscissae', 'yscale', 'dependent'])  # pylint: disable=C0103
 
     @staticmethod
     def scale():
