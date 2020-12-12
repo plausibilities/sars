@@ -36,13 +36,13 @@ jobs:
           formulae symbols (F63), undefined variable names (F82):"
 
           echo -e "\nsars/models"
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics sars/models
+          flake8 --count --select=E9,F63,F7,F82 --show-source --statistics sars/models
 
           echo -e "\nsars/functions"
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics sars/functions
+          flake8 --count --select=E9,F63,F7,F82 --show-source --statistics sars/functions
 
           echo -e "\nsars/graphics"
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics sars/graphics
+          flake8 --count --select=E9,F63,F7,F82 --show-source --statistics sars/graphics
 
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           printf "\n"
