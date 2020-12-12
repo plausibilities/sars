@@ -49,13 +49,13 @@ jobs:
           echo "Complexity issues:"
 
           echo -e "\nsars/models"
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics sars/models
+          flake8 --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics sars/models
 
           echo -e "\nsars/functions"
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics sars/functions
+          flake8 --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics sars/functions
 
           echo -e "\nsars/graphics"
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics sars/graphics
+          flake8 --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics sars/graphics
 
       - name: Lint with pylint
         run: |
