@@ -1,7 +1,7 @@
 pymc3==3.9.3
 seaborn==0.11.0
 jupyterlab==2.2.6
-pytest==0.0.0
+pytest==6.1.1
 coverage==5.3
 pylint==2.6.0
 pytest-cov==2.10.1
