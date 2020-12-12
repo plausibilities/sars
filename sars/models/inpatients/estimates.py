@@ -1,9 +1,16 @@
+"""
+Module estimates
+"""
+import collections
+
 import numpy as np
 import pymc3 as pm
-import collections
 
 
 class Estimates:
+    """
+    Class Estimates
+    """
 
     def __init__(self, trace, futures: collections.namedtuple, samplings: int, parameters: collections.namedtuple):
         """
@@ -40,15 +47,15 @@ class Estimates:
 
         return matrix
 
-    def tails(self, mu, chol):
+    def tails(self, mu_, chol):
         """
 
-        :param mu:
+        :param mu_:
         :param chol:
         :return:
         """
 
-        return pm.MvNormal.dist(mu=mu, chol=chol).random(size=(self.samplings, self.futures.ahead))
+        return pm.MvNormal.dist(mu=mu_, chol=chol).random(size=(self.samplings, self.futures.ahead))
 
     def exc(self, arguments):
         """
@@ -59,6 +66,6 @@ class Estimates:
 
         averages = self.average(arguments)
         cholesky = self.cholesky(arguments)
-        tails = self.tails(mu=averages[-1, :], chol=cholesky)
+        tails = self.tails(mu_=averages[-1, :], chol=cholesky)
 
         return np.concatenate((self.trace[arguments.name], tails), axis=1)

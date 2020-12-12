@@ -1,11 +1,16 @@
+"""
+Module focus
+"""
 import collections
-import logging
 
 import numpy as np
 import pandas as pd
 
 
 class Focus:
+    """
+    Class Focus
+    """
 
     def __init__(self, baseline: pd.DataFrame, variables: collections.namedtuple, futures: collections.namedtuple):
         """
@@ -15,12 +20,11 @@ class Focus:
         :param futures:
         """
 
+        # pylint: disable=C0103
+
         self.baseline = baseline
         self.variables = variables
         self.futures = futures
-
-        logging.basicConfig(level=logging.INFO)
-        self.logger = logging.getLogger(__name__)
 
         self.Data = collections.namedtuple(typename='Data',
                                            field_names=['abscissae', 'independent', 'dependent'])
@@ -50,8 +54,6 @@ class Focus:
         :param blob: The data excerpt in focus
         :return:
         """
-
-        self.logger.info('\n{}\n'.format(blob[self.variables.dependent].tail()))
 
         independent = blob[self.variables.independent].values \
             if len(self.variables.independent) > 0 else blob[self.variables.independent].values[:, None]

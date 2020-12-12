@@ -1,25 +1,47 @@
+"""
+Module scaled
+"""
+
 import collections
 
 import sars.functions.scaler
 
 
 class Scaled:
+    """
+    Class Scaled
+    """
 
     def __init__(self, data):
         """
 
+        :param data:
         """
+
+        # pylint: disable=C0103
+
         self.data = data
 
-        self.T = collections.namedtuple(
-            typename='T',
+        self.Scaled = collections.namedtuple(
+            typename='Scaled',
             field_names=['xscale', 'independent', 'abscissae', 'yscale', 'dependent'])
 
     @staticmethod
     def scale():
+        """
+
+        :return:
+        """
+
         return sars.functions.scaler.Scaler()
 
     def independent_(self):
+        """
+        Creates the scale object for independent variables, and the scaled (a) independent tensor,
+        and (b) extended independent tensor that includes prediction points.
+
+        :return:
+        """
 
         scale = self.scale()
         independent = scale.fit_transform(tensor=self.data.independent)
@@ -28,6 +50,11 @@ class Scaled:
         return scale, independent, abscissae
 
     def dependent_(self):
+        """
+        Creates the scale object for dependent variables, and the scaled dependent tensor
+
+        :return:
+        """
 
         scale = self.scale()
         dependent = scale.fit_transform(tensor=self.data.dependent)
@@ -41,4 +68,4 @@ class Scaled:
         """
 
         # noinspection PyUnresolvedReferences,PyProtectedMember
-        return self.T._make(self.independent_() + self.dependent_())
+        return self.Scaled._make(self.independent_() + self.dependent_())

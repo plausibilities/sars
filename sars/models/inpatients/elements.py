@@ -1,3 +1,6 @@
+"""
+Module elements
+"""
 import collections
 
 import numpy as np
@@ -5,6 +8,9 @@ import theano
 
 
 class Elements:
+    """
+    Class Elements
+    """
 
     def __init__(self, sections_: int, instances_: np.ndarray):
         """
@@ -13,11 +19,14 @@ class Elements:
         :param instances_:
         """
 
+        # pylint: disable=C0103
+
         self.sections_ = sections_
         self.instances_ = instances_
 
-        self.Elements = collections.namedtuple(typename='Elements',
-                                               field_names=['sections_', 'instances_', 'indices'])
+        self.Elements = collections.namedtuple(
+            typename='Elements',
+            field_names=['sections_', 'instances_', 'indices'])
 
     def exc(self):
         """

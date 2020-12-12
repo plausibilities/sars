@@ -1,10 +1,20 @@
+"""
+Module baseline
+"""
+
 import numpy as np
 import pandas as pd
 
 
 class Baseline:
+    """
+    Claas Baseline
+    """
 
     def __init__(self):
+        """
+        Constructor
+        """
 
         self.url = 'https://raw.githubusercontent.com/briefings/sars/develop/fundamentals/' \
                    'atlantic/warehouse/hospitalizations.csv'
@@ -21,9 +31,13 @@ class Baseline:
         self.parse_dates = ['datetimeobject']
 
     def exc(self):
+        """
+
+        :return:
+        """
 
         try:
             return pd.read_csv(filepath_or_buffer=self.url, header=0, usecols=self.fields,
                                dtype=self.dtype, encoding='utf-8', parse_dates=self.parse_dates)
         except OSError as err:
-            raise Exception(err.strerror)
+            raise Exception(err.strerror) from err
