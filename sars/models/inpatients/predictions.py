@@ -28,7 +28,7 @@ class Predictions:
 
         self.Predictions = collections.namedtuple(
             typename='Predictions',
-            field_names=['line', 'lines'])  # pylint: disable-msg=C0103
+            field_names=['line', 'lines'])  # pylint: disable=C0103
 
     def line(self):
         """
