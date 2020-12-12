@@ -18,11 +18,13 @@ class Scaled:
         :param data:
         """
 
+        # pylint: disable=C0103
+
         self.data = data
 
         self.Scaled = collections.namedtuple(
             typename='Scaled',
-            field_names=['xscale', 'independent', 'abscissae', 'yscale', 'dependent'])  # pylint: disable=C0103
+            field_names=['xscale', 'independent', 'abscissae', 'yscale', 'dependent'])
 
     @staticmethod
     def scale():
