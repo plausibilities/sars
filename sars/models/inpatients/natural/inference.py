@@ -14,6 +14,8 @@ class Inference:
     Class Inference
     """
 
+    # pylint: disable=R0801
+
     def __init__(self, data, parameters, elements):
         """
 
@@ -28,6 +30,8 @@ class Inference:
         self.parameters = parameters
         self.elements = elements
 
+        # Setting disable=C0103, as above, ensures that this correct variable naming convention
+        # does not raise convention errors
         self.ModelFeatures = collections.namedtuple(
             typename='ModelFeatures',
             field_names=['model', 'trace', 'maximal', 'arviztrace', 'likelihood'])
@@ -61,7 +65,6 @@ class Inference:
         dependent = self.share(tensor=self.data.dependent, repeat=False)
 
         with pm.Model() as model:
-
             # Intercepts
             packed_l_c = pm.LKJCholeskyCov(name='packed_l_c', eta=5.0, n=self.parameters.P,
                                            sd_dist=pm.HalfStudentT.dist(nu=2.0, sigma=3.0))
