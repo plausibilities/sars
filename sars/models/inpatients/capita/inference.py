@@ -14,6 +14,8 @@ class Inference:
     Class Inference
     """
 
+    # pylint: disable=R0801
+
     def __init__(self, data, parameters, elements):
         """
 
