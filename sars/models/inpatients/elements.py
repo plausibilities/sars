@@ -19,12 +19,14 @@ class Elements:
         :param instances_:
         """
 
+        # pylint: disable=C0103
+
         self.sections_ = sections_
         self.instances_ = instances_
 
         self.Elements = collections.namedtuple(
             typename='Elements',
-            field_names=['sections_', 'instances_', 'indices'])  # pylint: disable=C0103
+            field_names=['sections_', 'instances_', 'indices'])
 
     def exc(self):
         """
