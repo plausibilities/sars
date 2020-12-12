@@ -2,27 +2,27 @@ digraph {
 	graph [size="5.7,7.9"]
 	node [shape=circle]
 	subgraph cluster6 {
-		packed_l_m [label="packed_l_m
+		packed_l_c [label="packed_l_c
 ~
 _LKJCholeskyCov"]
-		packed_l_c [label="packed_l_c
+		packed_l_m [label="packed_l_m
 ~
 _LKJCholeskyCov"]
 		label=6 labeljust=r labelloc=b style=rounded
 	}
 	subgraph "cluster265 x 3" {
-		sigma [label="sigma
-~
-Uniform"]
-		gradient [label="gradient
-~
-MvGaussianRandomWalk"]
-		regression [label="regression
-~
-Deterministic" shape=box]
 		y [label="y
 ~
 Normal" style=filled]
+		sigma [label="sigma
+~
+Uniform"]
+		regression [label="regression
+~
+Deterministic" shape=box]
+		gradient [label="gradient
+~
+MvGaussianRandomWalk"]
 		intercept [label="intercept
 ~
 MvGaussianRandomWalk"]
@@ -32,6 +32,6 @@ MvGaussianRandomWalk"]
 	packed_l_m -> gradient
 	gradient -> regression
 	intercept -> regression
-	sigma -> y
 	regression -> y
+	sigma -> y
 }
