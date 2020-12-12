@@ -64,8 +64,17 @@ jobs:
           echo "============================= pylint session starts =============================="
           printf "\n"
 
-          echo -e "\nsars/models"
-          pylint --rcfile .pylintrc sars/models
+          echo -e "\nsars/models/inpatients/capita"
+          pylint --rcfile .pylintrc --disable=R0801 sars/models/inpatients/capita
+
+          echo -e "\nsars/models/inpatients/natural"
+          pylint --rcfile .pylintrc --disable=R0801 sars/models/inpatients/natural
+
+          echo -e "\nsars/models/inpatients/src"
+          pylint --rcfile .pylintrc sars/models/inpatients/src
+
+          echo -e "\nsars/models/inpatients/*.py"
+          pylint --rcfile .pylintrc sars/models/inpatients/*.py
 
           echo -e "\nsars/functions"
           pylint --rcfile .pylintrc sars/functions
