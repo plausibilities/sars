@@ -24,7 +24,7 @@ class Elements:
 
         self.Elements = collections.namedtuple(
             typename='Elements',
-            field_names=['sections_', 'instances_', 'indices']) # pylint: disable-msg=C0103
+            field_names=['sections_', 'instances_', 'indices'])  # pylint: disable=C0103
 
     def exc(self):
         """
