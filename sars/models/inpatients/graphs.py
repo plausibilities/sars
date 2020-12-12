@@ -1,3 +1,7 @@
+"""
+Module graphs
+"""
+
 import collections
 
 import matplotlib.pyplot as plt
@@ -8,7 +12,7 @@ import sars.graphics.relational
 
 class Graphs:
     """
-
+    Class Graphs
     """
 
     def __init__(self, data: collections.namedtuple, predictions: collections.namedtuple, titles: tuple):
@@ -19,12 +23,14 @@ class Graphs:
         :param titles:
         """
 
+        # pylint: disable=C0103
+
         self.data = data
         self.predictions = predictions
         self.titles = titles
 
         self.colours = ['black', 'blue', 'red']
-        self.c = ['k', 'b', 'r']
+        self.cc_ = ['k', 'b', 'r']
 
         self.relational = sars.graphics.relational.Relational()
         self.RelationalGraphLabels = collections.namedtuple(
@@ -36,28 +42,28 @@ class Graphs:
         :return:
         """
 
-        ax = self.relational.figure(width=4.7, height=3.3)
-        ax.set_prop_cycle(color=self.colours)
+        ax_ = self.relational.figure(width=4.7, height=3.3)
+        ax_.set_prop_cycle(color=self.colours)
 
         # The curves
         for i in np.arange(self.data.dependent.shape[1]):
-            ax.plot(self.data.independent, np.log(self.data.dependent[:, i]), 'o', alpha=0.15,
+            ax_.plot(self.data.independent, np.log(self.data.dependent[:, i]), 'o', alpha=0.15,
                     label=None)
 
         for i in np.arange(self.predictions.line.shape[1]):
-            ax.plot(self.data.abscissae, np.log(self.predictions.line[:, i]), '-', linewidth=0.95,
+            ax_.plot(self.data.abscissae, np.log(self.predictions.line[:, i]), '-', linewidth=0.95,
                     label=('est. ln(' + self.titles[i] + ')'))
 
         # Attributes of ticks
-        ax.tick_params(axis='x', labelrotation=90)
+        ax_.tick_params(axis='x', labelrotation=90)
 
         # Annotations
         # noinspection PyProtectedMember,PyUnresolvedReferences
         self.relational.annotation(
-            handle=ax,
+            handle=ax_,
             labels=self.RelationalGraphLabels._make(['\ndata\n', '\ndays thus far', '{}\n'.format(ylabel)]))
 
-        ax.legend(loc='lower right', fontsize='small')
+        ax_.legend(loc='lower right', fontsize='small')
 
     def getseparate(self, handle, index: int):
         """
@@ -71,10 +77,10 @@ class Graphs:
         handle.plot(self.data.abscissae, self.predictions.lines[:, :, index].T, '#cccc4d', alpha=0.6, label=None)
 
         handle.plot(self.data.independent, self.data.dependent[:, index][:, None],
-                    '{}o'.format(self.c[index]), alpha=0.15, markersize=4.25, label='observations')
+                    '{}o'.format(self.cc_[index]), alpha=0.15, markersize=4.25, label='observations')
 
         handle.plot(self.data.abscissae, self.predictions.line[:, index][:, None],
-                    '{}-'.format(self.c[index]), linewidth=0.95, label='est. (via Mean)')
+                    '{}-'.format(self.cc_[index]), linewidth=0.95, label='est. (via Mean)')
 
         # Attributes of ticks
         handle.tick_params(axis='both', labelsize='small')
