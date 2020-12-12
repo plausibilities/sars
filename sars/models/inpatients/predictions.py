@@ -21,6 +21,8 @@ class Predictions:
         :param parameters: A named tuple of parameters including the number of dependent variables P
         """
 
+        # pylint: disable=C0103
+
         self.iag = iag
         self.samplings = samplings
         self.scaled = scaled
@@ -28,7 +30,7 @@ class Predictions:
 
         self.Predictions = collections.namedtuple(
             typename='Predictions',
-            field_names=['line', 'lines'])  # pylint: disable=C0103
+            field_names=['line', 'lines'])
 
     def line(self):
         """
