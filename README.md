@@ -39,7 +39,9 @@ are set as **co-varying dependent variables**.  The term **per 100K** means **pe
 variable is days thus far.  The model predicts 21 days ahead, therefore the observations curves are shorter than the 
 estimates curves; more details are continuously outlined in 
 the <a href="https://colab.research.google.com/github/plausibilities/sars/blob/develop/notebooks/inpatients/capita.ipynb" target="_blank">capita.ipynb notebook</a>, 
-and its supplementary programs.
+and its supplementary programs.  Aleatoric/epistemic uncertainties 
+are considered.  [Read more about uncertainities in (a) [A New Approach to Risk: The Implications of E3](https://www.jstor.org/stable/27670018?Search=yes&resultItemClick=true&searchText=Aleatory+or+epistemic+Does+it+matter&searchUri=%2Faction%2FdoBasicSearch%3FQuery%3DAleatory%2Bor%2Bepistemic%2BDoes%2Bit%2Bmatter%26pagemark%3DeyJwYWdlIjoyLCJzdGFydHMiOnsiSlNUT1JCYXNpYyI6MjV9fQ%253D%253D%26cty_journal_facet%3Dam91cm5hbA%253D%253D%26disc_business_discipline_facet%3DYnVzaW5lc3MtZGlzY2lwbGluZQ%253D%253D%26disc_statistics_discipline_facet%3Dc3RhdGlzdGljcy1kaXNjaXBsaW5l&ab_segments=0%2Fbasic_SYC-5187_SYC-5188%2F5187&refreqid=fastly-default%3Abd055fbf2081671cec304ca7ca932670&seq=1#metadata_info_tab_contents), and (b) 
+[Aleatory or epistemic? Does it matter?](https://www.sciencedirect.com/science/article/abs/pii/S0167473008000556?via%3Dihub)]
 
 In a deployed mode, we'd
 
