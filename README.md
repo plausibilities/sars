@@ -1,7 +1,7 @@
 branch|state
 :---|:---
-develop|![SARS & Bayesian Modelling](https://github.com/plausibilities/sars/workflows/SARS%20&%20Bayesian%20Modelling/badge.svg?branch=develop)
-master|![SARS & Bayesian Modelling](https://github.com/plausibilities/sars/workflows/SARS%20&%20Bayesian%20Modelling/badge.svg?branch=master "master")
+develop|![SARS & Bayesian Modelling](https://github.com/plausibilities/sars/workflows/SARS%20&%20Bayesian%20Modelling/badge.svg?branch=develop "GitHub Actions: develop branch")
+master|![SARS & Bayesian Modelling](https://github.com/plausibilities/sars/workflows/SARS%20&%20Bayesian%20Modelling/badge.svg?branch=master "GitHub Actions: master branch")
 
 <br>
 
