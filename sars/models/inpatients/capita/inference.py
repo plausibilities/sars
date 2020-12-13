@@ -59,8 +59,11 @@ class Inference:
 
         # pylint: disable=E1136
 
-        independent = self.share(tensor=self.data.independent, repeat=True, repeats=self.parameters.P)
-        dependent = self.share(tensor=self.data.dependent, repeat=False)
+        # self.share(tensor=self.data.independent, repeat=True, repeats=self.parameters.P)
+        independent = self.data.independent
+
+        # self.share(tensor=self.data.dependent, repeat=False)
+        dependent = self.data.dependent
 
         with pm.Model() as model:
             # Intercepts
@@ -98,8 +101,9 @@ class Inference:
             # Inference
             # Drawing posterior samples using NUTS sampling
             # Beware, if the number of cores isn't set the function will use min(machine cores, 4)
-            trace = pm.sample(draws=100, cores=2, target_accept=0.9, tune=100)
-            maximal = pm.find_MAP()
+            trace = pm.sample(draws=500, cores=2, target_accept=0.9, tune=1000)
+            # maximal = pm.find_MAP()
+            maximal = None
 
             # The trace generated from Markov Chain Monte Carlo sampling
             arviztrace = az.from_pymc3(trace=trace)
