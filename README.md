@@ -38,7 +38,7 @@ observed measures, i.e.,  the accumulative series of
 are set as **co-varying dependent variables**.  The term **per 100K** means **per 100K of the population of an area in question**.  The independent 
 variable is days thus far.  The model predicts 21 days ahead, therefore the observations curves are shorter than the 
 estimates curves; more details are continuously outlined in 
-the [capita.ipynb notebook](https://colab.research.google.com/github/plausibilities/sars/blob/develop/notebooks/inpatients/capita.ipynb), 
+the <a href="https://colab.research.google.com/github/plausibilities/sars/blob/develop/notebooks/inpatients/capita.ipynb" target="_blank">capita.ipynb notebook</a>, 
 and its supplementary programs.
 
 In a deployed mode, we'd aim to
