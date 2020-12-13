@@ -4,6 +4,15 @@ develop|![SARS & Bayesian Modelling](https://github.com/plausibilities/sars/work
 master|![SARS & Bayesian Modelling](https://github.com/plausibilities/sars/workflows/SARS%20&%20Bayesian%20Modelling/badge.svg?branch=master "master")
 
 <br>
+
+* [SARS](#sars)
+  * [An Example](#an-example)
+  * [Notebooks & Programs](#notebooks--programs)
+* [Development Notes](#development-notes)
+  * [Environment](#environment)
+  * [Requirements](#requirements)
+
+<br>
 <br>
 
 ### SARS
@@ -11,7 +20,6 @@ master|![SARS & Bayesian Modelling](https://github.com/plausibilities/sars/workf
 The **focus** herein is the modelling or forecasting of SARS-CoV-2 related trends, and risks, via Bayesian 
 modelling.  Both PyMC3 and TensorFlow Probability (TFP) are being explored.  The advantage of the latter is performance.
 
-<br>
 <br>
 
 #### An Example
