@@ -41,7 +41,7 @@ estimates curves; more details are continuously outlined in
 the <a href="https://colab.research.google.com/github/plausibilities/sars/blob/develop/notebooks/inpatients/capita.ipynb" target="_blank">capita.ipynb notebook</a>, 
 and its supplementary programs.
 
-In a deployed mode, we'd aim to
+In a deployed mode, we'd
 
 * run the model daily.
 
