@@ -51,7 +51,7 @@ In a deployed mode, we'd
 
 * continuously compare model predictions with real values; therefore require curves of predictions & percentage errors, at least.
 
-* use an interactive graphs, e.g., Tableau, HighCharts, D3, etc.
+* use interactive graphs, e.g., Tableau, HighCharts, D3, etc.
 
 <br>
 <br>
