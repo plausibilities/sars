@@ -14,24 +14,24 @@ _LKJCholeskyCov"]
 		gradient [label="gradient
 ~
 MvGaussianRandomWalk"]
-		regression [label="regression
-~
-Deterministic" shape=box]
-		intercept [label="intercept
-~
-MvGaussianRandomWalk"]
 		y [label="y
 ~
 Normal" style=filled]
 		sigma [label="sigma
 ~
 Uniform"]
+		regression [label="regression
+~
+Deterministic" shape=box]
+		intercept [label="intercept
+~
+MvGaussianRandomWalk"]
 		label="291 x 3" labeljust=r labelloc=b style=rounded
 	}
 	packed_l_c -> intercept
 	packed_l_m -> gradient
 	intercept -> regression
 	gradient -> regression
-	regression -> y
 	sigma -> y
+	regression -> y
 }
