@@ -33,7 +33,6 @@ class Graphs:
         self.fields = fields
 
         self.colours = ['black', 'blue', 'red']
-        self.cc_ = ['k', 'b', 'r']
 
         self.relational = sars.graphics.relational.Relational()
         self.RelationalGraphLabels = collections.namedtuple(
@@ -76,15 +75,18 @@ class Graphs:
         :return:
         """
 
+        # Colours
+        cc_ = ['k', 'b', 'r']
+
         # The curves
         handle.plot(self.fields.extended, self.predictions.lines[:, :, index].T,
                     '#cccc4d', alpha=0.6, label=None)
 
         handle.plot(self.fields.initial, self.data.dependent[:, index][:, None],
-                    '{}o'.format(self.cc_[index]), alpha=0.15, markersize=4.25, label='observations')
+                    '{}o'.format(cc_[index]), alpha=0.15, markersize=4.25, label='observations')
 
         handle.plot(self.fields.extended, self.predictions.line[:, index][:, None],
-                    '{}-'.format(self.cc_[index]), linewidth=0.95, label='est. (via Mean)')
+                    '{}-'.format(cc_[index]), linewidth=0.95, label='est. (via Mean)')
 
         # Attributes of ticks
         handle.tick_params(axis='both', labelsize='small')
