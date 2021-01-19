@@ -98,7 +98,7 @@ class Inference:
             # Inference
             # Drawing posterior samples using NUTS sampling
             # Beware, if the number of cores isn't set the function will use min(machine cores, 4)
-            trace = pm.sample(draws=1000, cores=2, target_accept=0.8, tune=1000)
+            trace = pm.sample(draws=500, cores=2, target_accept=0.8, tune=1000)
             maximal = pm.find_MAP()
 
             # The trace generated from Markov Chain Monte Carlo sampling
