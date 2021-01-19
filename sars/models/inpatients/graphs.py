@@ -6,10 +6,12 @@ import collections
 
 import matplotlib.pyplot as plt
 import numpy as np
+import math
 
 import sars.graphics.relational
 
 
+# noinspection PyUnresolvedReferences,PyProtectedMember
 class Graphs:
     """
     Class Graphs
@@ -31,16 +33,17 @@ class Graphs:
         self.predictions = predictions
         self.titles = titles
         self.fields = fields
-
         self.colours = ['black', 'blue', 'red']
 
         self.relational = sars.graphics.relational.Relational()
         self.RelationalGraphLabels = collections.namedtuple(
             typename='RelationalGraphLabels', field_names=['title', 'xlabel', 'ylabel'])
 
-    def together(self, ylabel: str = 'y'):
+    def together(self, ylabel: str = 'y', xlabel: str = 'x'):
         """
 
+        :param ylabel:
+        :param xlabel:
         :return:
         """
 
@@ -56,22 +59,18 @@ class Graphs:
             ax_.plot(self.fields.extended, np.log(self.predictions.line[:, i]), '-',
                      linewidth=0.95, label=('est. ln(' + self.titles[i] + ')'))
 
-        # Attributes of ticks
-        ax_.tick_params(axis='x', labelrotation=90)
-
         # Annotations
-        # noinspection PyProtectedMember,PyUnresolvedReferences
-        self.relational.annotation(
-            handle=ax_,
-            labels=self.RelationalGraphLabels._make(['\ndata\n', '\ndays thus far', '{}\n'.format(ylabel)]))
-
+        ax_.tick_params(axis='x', labelrotation=90)
+        self.relational.annotation(handle=ax_, labels=self.RelationalGraphLabels._make(
+            ['\ndata curves\n', '\n{}'.format(xlabel), '{}\n'.format(ylabel)]))
         ax_.legend(loc='lower right', fontsize='small')
 
-    def getseparate(self, handle, index: int):
+    def get_separate(self, handle, index: int, xlabel: str = 'x'):
         """
 
-        :param handle:
-        :param index:
+        :param handle: The graph handle
+        :param index: The subplot figure identifier
+        :param xlabel: The name of the x-axis variates
         :return:
         """
 
@@ -93,24 +92,33 @@ class Graphs:
         handle.tick_params(axis='x', labelrotation=90)
 
         # Annotations
-        handle.set_xlabel('\ndays thus far', fontsize='small')
+        handle.set_xlabel('\n{}'.format(xlabel), fontsize='small')
         handle.set_ylabel('{}\n'.format(self.titles[index]), fontsize='small')
-
         handle.legend(loc='upper left', fontsize='small')
 
-    def separate(self, adjust: np.ndarray, layout: np.ndarray):
+    def separate(self, adjust: np.ndarray, layout: np.ndarray, xlabel: str):
         """
+        plt.subplots(nrows=1, ncols=ncols, figsize=(9.1, 2.1), constrained_layout=False)
 
+        :param adjust:
+        :param layout:
+        :param xlabel:
         :return:
         """
 
-        ncols = self.predictions.line.shape[1]
-        fig, handle = plt.subplots(nrows=1, ncols=ncols, figsize=(9.1, 2.1), constrained_layout=False)
+        # The number of curves
+        nlines = self.predictions.line.shape[1]
 
+        # Proceed
+        fig, handle = plt.subplots(nrows=math.ceil(nlines/2), ncols=2)
         fig.subplots_adjust(hspace=adjust[0], wspace=adjust[1])
         fig.tight_layout(h_pad=layout[0], w_pad=layout[1])
 
-        for i in range(ncols):
-            self.getseparate(handle=handle[i], index=i)
+        for i in range(nlines):
+            self.get_separate(handle=handle[i // 2, i % 2], index=i, xlabel=xlabel)
+
+        # Delete the final/empty subplot
+        if (nlines // 2) > 0:
+            plt.delaxes(handle[nlines // 2, nlines % 2])
 
         return fig, handle
