@@ -3,10 +3,10 @@ Module graphs
 """
 
 import collections
+import math
 
 import matplotlib.pyplot as plt
 import numpy as np
-import math
 
 import sars.graphics.relational
 
@@ -110,7 +110,7 @@ class Graphs:
         nlines = self.predictions.line.shape[1]
 
         # Proceed
-        fig, handle = plt.subplots(nrows=math.ceil(nlines/2), ncols=2)
+        fig, handle = plt.subplots(nrows=math.ceil(nlines / 2), ncols=2)
         fig.subplots_adjust(hspace=adjust[0], wspace=adjust[1])
         fig.tight_layout(h_pad=layout[0], w_pad=layout[1])
 
