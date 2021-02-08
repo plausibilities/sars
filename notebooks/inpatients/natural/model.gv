@@ -10,23 +10,23 @@ _LKJCholeskyCov"]
 _LKJCholeskyCov"]
 		label=6 labeljust=r labelloc=b style=rounded
 	}
-	subgraph "cluster303 x 3" {
+	subgraph "cluster323 x 3" {
+		regression [label="regression
+~
+Deterministic" shape=box]
 		y [label="y
 ~
 Normal" style=filled]
 		gradient [label="gradient
 ~
 MvGaussianRandomWalk"]
-		sigma [label="sigma
-~
-Gamma"]
-		regression [label="regression
-~
-Deterministic" shape=box]
 		intercept [label="intercept
 ~
 MvGaussianRandomWalk"]
-		label="303 x 3" labeljust=r labelloc=b style=rounded
+		sigma [label="sigma
+~
+Gamma"]
+		label="323 x 3" labeljust=r labelloc=b style=rounded
 	}
 	packed_l_c -> intercept
 	packed_l_m -> gradient
