@@ -1,4 +1,4 @@
-pymc==4.3.0
+pymc3==3.11.4
 seaborn==0.11.2
 jupyterlab==3.3.2
 pytest==7.1.2
@@ -11,5 +11,5 @@ numpy==1.22.3
 pandas==1.4.2
 requests==2.27.1
 scipy==1.9.3
-Theano==1.0.5
+theano-pymc==1.1.2
 xarray==2022.11.0
