@@ -1,4 +1,4 @@
-pymc
+pymc3
 seaborn
 jupyterlab
 pytest
