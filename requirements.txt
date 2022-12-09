@@ -1,4 +1,5 @@
 pymc3==3.11.4
+theano==1.0.5
 seaborn==0.11.2
 jupyterlab==3.3.2
 pytest==7.1.2
@@ -6,10 +7,10 @@ coverage==6.3.2
 pylint==2.12.2
 pytest-cov==3.0.0
 ## Additionally:
+arviz==0.11.2
 matplotlib==3.6.2
 numpy==1.22.3
 pandas==1.4.2
 requests==2.27.1
 scipy==1.9.3
-theano-pymc==1.1.2
 xarray==2022.11.0
