@@ -66,12 +66,11 @@ class Inference:
             # Intercepts
             packed_l_c = pm.LKJCholeskyCov(name='packed_l_c', eta=5.0, n=self.parameters.P,
                                            sd_dist=pm.HalfStudentT.dist(nu=2.0, sigma=3.0))
-
             l_c = pm.expand_packed_triangular(n=self.parameters.P, packed=packed_l_c)
 
-            ec_: pm.model.FreeRV = pm.MvGaussianRandomWalk(
+            # pm.model.FreeRV
+            ec_ = pm.MvGaussianRandomWalk(
                 'intercept', shape=(self.elements.sections_, self.parameters.P), chol=l_c)
-
             ecr = ec_[self.elements.indices]
 
             # Gradients
@@ -79,17 +78,18 @@ class Inference:
                                            sd_dist=pm.HalfStudentT.dist(nu=2.0, sigma=3.0))
             l_m = pm.expand_packed_triangular(n=self.parameters.P, packed=packed_l_m)
 
-            em_: pm.model.FreeRV = pm.MvGaussianRandomWalk(
+            # pm.model.FreeRV
+            em_ = pm.MvGaussianRandomWalk(
                 'gradient', shape=(self.elements.sections_, self.parameters.P), chol=l_m)
-
             emr = em_[self.elements.indices]
 
             # Regression
             regression = pm.Deterministic('regression', ecr + emr * independent)
 
             # Hyper-parameters
-            sigma: pm.model.TransformedRV = pm.Gamma(name='sigma', alpha=3.0, beta=2.5,
-                                                     shape=(self.parameters.N, self.parameters.P))
+            # pm.model.TransformedRV
+            sigma = pm.Gamma(name='sigma', alpha=3.0, beta=2.5,
+                             shape=(self.parameters.N, self.parameters.P))
 
             # Hence, likelihood ...
             # noinspection PyTypeChecker
