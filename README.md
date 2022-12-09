@@ -92,7 +92,7 @@ conda create --prefix ~/Anaconda3/envs/uncertainty
 The installations are
 
 ```bash
-conda install -c anaconda pymc3 # installs: python, theano, arviz, numpy, pandas
+conda install -c anaconda pymc3==3.11.4 # installs: python, theano, arviz, numpy, pandas
 conda install -c anaconda seaborn # installs: matplotlib
 conda install -c anaconda python-graphviz # installs: graphviz
 conda install -c anaconda pywin32 jupyterlab nodejs # installs: requests, urllib3
