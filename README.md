@@ -13,7 +13,6 @@ master|![SARS & Bayesian Modelling](https://github.com/plausibilities/sars/workf
   * [Requirements](#requirements)
 
 <br>
-<br>
 
 ### SARS
 
