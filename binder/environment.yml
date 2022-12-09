@@ -5,7 +5,7 @@ dependencies:
   - python==3.8.13
   - pip
   - pip:
-      - pymc==4.3.0
+      - pymc3==3.11.4
   - seaborn==0.11.2
   - python-graphviz==0.16
   - jupyterlab==3.3.2
