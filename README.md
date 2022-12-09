@@ -86,7 +86,7 @@ the [settings](https://github.com/plausibilities/sars/runs/1545478635) of main.y
 The environment
 
 ```
-conda create --prefix ~/Anaconda3/envs/uncertainty
+conda create --prefix ~/Anaconda3/envs/prior
 ```
 
 The installations are
@@ -100,7 +100,6 @@ conda install -c anaconda pywin32 jupyterlab nodejs # installs: requests, urllib
 
 # For norms & testing
 conda install -c anaconda pytest coverage pylint pytest-cov flake8
-
 ```
 
 #### Requirements
@@ -108,11 +107,11 @@ conda install -c anaconda pytest coverage pylint pytest-cov flake8
 For project *sars*
 
 ```bash
-conda activate uncertainty
+conda activate prior
 pip freeze -r docs/filter.txt > requirements.txt
 ```
 
-and
+For code analysis
 
 ```bash
 pylint --generate-rcfile > .pylintrc
