@@ -62,7 +62,7 @@ class Graphs:
         # Annotations
         ax_.tick_params(axis='x', labelrotation=90)
         self.relational.annotation(handle=ax_, labels=self.RelationalGraphLabels._make(
-            ['\ndata curves\n', '\n{}'.format(xlabel), '{}\n'.format(ylabel)]))
+            ['\ndata curves\n', f'\n{xlabel}', f'{ylabel}\n']))
         ax_.legend(loc='lower right', fontsize='small')
 
     def get_separate(self, handle, index: int, xlabel: str = 'x'):
@@ -82,18 +82,18 @@ class Graphs:
                     '#cccc4d', alpha=0.6, label=None)
 
         handle.plot(self.fields.initial, self.data.dependent[:, index][:, None],
-                    '{}o'.format(cc_[index]), alpha=0.15, markersize=4.25, label='observations')
+                    f'{cc_[index]}o', alpha=0.15, markersize=4.25, label='observations')
 
         handle.plot(self.fields.extended, self.predictions.line[:, index][:, None],
-                    '{}-'.format(cc_[index]), linewidth=0.95, label='est. (via Mean)')
+                    f'{cc_[index]}-', linewidth=0.95, label='est. (via Mean)')
 
         # Attributes of ticks
         handle.tick_params(axis='both', labelsize='small')
         handle.tick_params(axis='x', labelrotation=90)
 
         # Annotations
-        handle.set_xlabel('\n{}'.format(xlabel), fontsize='small')
-        handle.set_ylabel('{}\n'.format(self.titles[index]), fontsize='small')
+        handle.set_xlabel(f'\n{xlabel}', fontsize='small')
+        handle.set_ylabel(f'{self.titles[index]}\n', fontsize='small')
         handle.legend(loc='upper left', fontsize='small')
 
     def separate(self, adjust: np.ndarray, layout: np.ndarray, xlabel: str):

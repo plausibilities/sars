@@ -13,7 +13,6 @@ master|![SARS & Bayesian Modelling](https://github.com/plausibilities/sars/workf
   * [Requirements](#requirements)
 
 <br>
-<br>
 
 ### SARS
 
@@ -87,24 +86,22 @@ the [settings](https://github.com/plausibilities/sars/runs/1545478635) of main.y
 The environment
 
 ```
-conda create --prefix ~/Anaconda3/envs/uncertainty
+conda create --prefix ~/Anaconda3/envs/prior
 ```
 
 The installations are
 
 ```bash
-conda install -c anaconda pymc3 # installs: python, theano, arviz, numpy, pandas
+conda install -c anaconda python==3.8.13
+conda install -c anaconda pymc3==3.11.4
+conda install -c anaconda theano
 conda install -c anaconda seaborn # installs: matplotlib
 conda install -c anaconda python-graphviz # installs: graphviz
 conda install -c anaconda pywin32 jupyterlab nodejs # installs: requests, urllib3
 
 
 # For norms & testing
-conda install -c anaconda pytest coverage pylint pytest-cov
-
-# Upgrading PyMC3
-pip install --upgrade pymc3==3.9.3
-
+conda install -c anaconda pytest coverage pylint pytest-cov flake8
 ```
 
 #### Requirements
@@ -112,12 +109,24 @@ pip install --upgrade pymc3==3.9.3
 For project *sars*
 
 ```bash
-conda activate uncertainty
+conda activate prior
 pip freeze -r docs/filter.txt > requirements.txt
 ```
 
-and
+For code analysis
 
 ```bash
 pylint --generate-rcfile > .pylintrc
 ```
+
+<br>
+<br>
+
+<br>
+<br>
+
+<br>
+<br>
+
+<br>
+<br>
