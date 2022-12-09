@@ -101,9 +101,6 @@ conda install -c anaconda pywin32 jupyterlab nodejs # installs: requests, urllib
 # For norms & testing
 conda install -c anaconda pytest coverage pylint pytest-cov flake8
 
-# Upgrading PyMC3
-pip install --upgrade pymc3==3.9.3
-
 ```
 
 #### Requirements
