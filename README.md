@@ -118,3 +118,15 @@ For code analysis
 ```bash
 pylint --generate-rcfile > .pylintrc
 ```
+
+<br>
+<br>
+
+<br>
+<br>
+
+<br>
+<br>
+
+<br>
+<br>
