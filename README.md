@@ -92,7 +92,9 @@ conda create --prefix ~/Anaconda3/envs/prior
 The installations are
 
 ```bash
-conda install -c anaconda pymc3==3.11.4 # installs: python, theano, arviz, numpy, pandas
+conda install -c anaconda python==3.8.13
+conda install -c anaconda pymc3==3.11.4
+conda install -c anaconda theano
 conda install -c anaconda seaborn # installs: matplotlib
 conda install -c anaconda python-graphviz # installs: graphviz
 conda install -c anaconda pywin32 jupyterlab nodejs # installs: requests, urllib3
